@@ -24,7 +24,7 @@ jobs:
           textlint-filter-rule-comments@1.2.2 \
           textlint-plugin-markdown
         npm cache clean --force
-        textlint --format checkstyle --config .github/workflows/.textlintrc articles/* > textlint.log || EXIT_CODE=$?
+        textlint --format checkstyle --config rules/textlint/.textlintrc articles/* > textlint.log || EXIT_CODE=$?
         # TODO: Check only files that have differences compared to the previous commit
         cat textlint.log | bin/reviewdog -reporter=github-pr-review \
           -diff='git --no-pager diff HEAD^' -f=checkstyle -name=textlint

@@ -1,12 +1,9 @@
 {
   "rules": {
-    "preset-ja-technical-writing":  {
-      "max-ten": {
-        "max": 2
-      }
-    }
+    "preset-ja-technical-writing": true
   },
   "filters": {
     "comments": true
-  }
+  },
+  "plugins": ["markdown"]
 }

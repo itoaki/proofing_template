@@ -10,9 +10,9 @@ version: 1
 
 # 別の設定ファイルを読み込み、mergeすることもできます。
 imports:
-  # - ./prh-rules/media/techbooster.yml
-  # - ./prh-rules/files/markdown.yml
-  # - ./prh-rules/files/review.yml
+  # 気合で移行した気持ちになった
+  - ./prh-rules/media/techbooster.yml
+  - ./prh-rules/media/WEB+DB_PRESS.yml
 
   # imports にはいくつかのオプションが指定できる
   # - path: other-rules.yml
