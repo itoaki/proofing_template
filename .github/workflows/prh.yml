@@ -21,9 +21,14 @@ jobs:
         set -x
         npm install -g prh@5.4.4
         npm cache clean --force
-        prh --rules .github/workflows/prh/rules.yml --verify README.md > prh.log || EXIT_CODE=$?
+        prh --rules rules/prh/prh.yml --verify articles/* > prh.log || EXIT_CODE=$?
         cat prh.log | bin/reviewdog -reporter=github-pr-review -diff='git --no-pager diff HEAD^' -efm='%f(%l,%c): %m' -name=prh
         cat prh.log
         exit ${EXIT_CODE}
+
       env:
         REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+
+
