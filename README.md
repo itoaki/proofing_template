@@ -1,43 +1,33 @@
+# このリポジトリの使い方
+テンプレートリポジトリなので、Use This Templeateからリポジトリを作成して使用してください。  
+![](./docs/images/README8.png)
+
+CircleCIで校正チェックする場合は[こちら](./docs/CircleCI.md)
+
+GitHub Actionsで校正チェックする場合は[こちら](./docs/GitHubActions.md)
+
 # ローカルで文章をチェックする
-初めて使用する場合は、docker imageのビルドが必要です。  
-プロジェクトルートから、  
+[前提条件]  
+ローカル環境にDockerがインストールされている必要があります。  
+
+[Docker Imageをビルドする]  
+初回利用時には、docker imageをビルドする必要があります。
+プロジェクトルートから、以下のコマンドを実行してください。
+```
 sh ./local_check/buildImage.sh  
+```
 
-以下のコマンドで、チェックを実行。  
+[チェック実行]
+以下のコマンドで、チェックを実行できます。  
+```
 sh  ./local_check/check.sh  
+```
+実行結果は、プロジェクトルートに出力されるcheck.logに出力されます。  
 
-# チェック対象のファイルは、/articles に格納してください。
+# チェック対象のファイル
+チェック対象のファイルは、/articles に格納してください。  
+（できれば設定ファイルで自由にフォルダを指定できるようにしたい。）
 
-# Circle CIを使用するときの設定
-GitHubトークンを生成します。  
-まずは、以下のURLにアクセス  
-https://github.com/settings/tokens
-
-「Generate new token」を押下
-![](./images/README1.png)
-
-Noteを記入し、Select scopesのrepoにチェックを入れる
-![](./images/README2.png)
-
-一番下までスクロールし、「Generate token」を押下
-![](./images/README3.png)
-
-トークンがコピーできるので、コピーしておく。  
-(上にも注意が出てますが、この画面閉じるとコピーできなくなるので、再作成が必要になります。)
-![](./images/README4.png)
-
-次はCircleCiの設定  
-以下のURLにアクセスする。  
-https://circleci.com/gh/[アカウント名]/[リポジトリ名]/edit#env-vars
-
-「Add Variable」を押下
-![](./images/README5.png)
-
-Nameに「REVIEWDOG_GITHUB_API_TOKEN」を設定し、Valueに先ほどコピーしたトークンを貼り付け  
-Add Variableを押下
-![](./images/README6.png)
-
-これで準備完了
-![](./images/README7.png)
-
-
+# チェック内容
+チェックの設定ファイルは、rules/ に格納しています。
+必要に応じて変更してください。  
